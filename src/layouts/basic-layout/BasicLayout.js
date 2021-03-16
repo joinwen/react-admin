@@ -45,13 +45,13 @@ class BasicLayout extends React.Component {
 
             <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
               <Menu.Item key="1" icon={<UserOutlined />}>
-                <Link to="/">出师表</Link>
+                <Link to="/dashboard">出师表</Link>
               </Menu.Item>
               <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                <Link to="/deng">登徒子好色赋</Link>
+                <Link to="/dashboard/deng">登徒子好色赋</Link>
               </Menu.Item>
               <Menu.Item key="3" icon={<UploadOutlined />}>
-                <Link to="/luo">洛神赋</Link>
+                <Link to="/dashboard/luo">洛神赋</Link>
               </Menu.Item>
               <SubMenu key="4" icon={<UserOutlined />} title="User">
                 <Menu.Item key="41">Tom</Menu.Item>
@@ -93,13 +93,13 @@ class BasicLayout extends React.Component {
             </Header>
             <Content className="site-layout-background m-2 p-2">
               <Switch>
-                <Route exact path="/">
+                <Route exact path="/dashboard">
                   <Home />
                 </Route>
-                <Route path="/deng">
+                <Route path="/dashboard/deng">
                   <DengTuZi />
                 </Route>
-                <Route path="/luo">
+                <Route path="/dashboard/luo">
                   <LuoShenFu />
                 </Route>
 
