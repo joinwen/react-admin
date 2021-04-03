@@ -26,18 +26,26 @@ export default function ParamsExample() {
           </li>
         </ul>
         <Switch>
-          <Route path="/params/:id" children={<Child />}></Route>
+          <Route path="/params/:id" component={Child}>
+          </Route>
         </Switch>
       </div>
     </Router>
   )
 }
 
-function Child() {
+/**
+ * 使用 props 获取 match,location,history
+ * 使用 useParams 方式
+ */
+function Child(props) {
+  console.log(props);
+  let { match } = props;
   let params = useParams();
   return (
     <div>
-      <h3>{params.id}</h3>
+      <h3>{ params.id }</h3>
+      <h3>{ match.params.id }</h3>
     </div>
   )
 }

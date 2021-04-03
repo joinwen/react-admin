@@ -1,6 +1,9 @@
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-
-export default function BasicExample() {
+import { BrowserRouter as Router, Switch, Route, Link, useLocation} from "react-router-dom";
+import qs from "query-string";
+export default function BasicExample(props) {
+  console.log(props);
+  let location = useLocation();
+  let isSwitch = qs.parse(location.search).switch;
   return (
     <Router>
       <div>
@@ -16,18 +19,35 @@ export default function BasicExample() {
           </li>
         </ul>
         <hr/>
-        <Switch>
+        {
+          isSwitch
+          ?
+          <Switch>
 
-          <Route path="/basic/about">
+            <Route path="/basic/about">
             <About />
-          </Route>
-          <Route path="/basic/dashboard">
+            </Route>
+            <Route path="/basic/dashboard">
             <Dashboard />
-          </Route>
-          <Route path="/basic">
+            </Route>
+            <Route path="/basic">
             <Home />
-          </Route>
-        </Switch>
+            </Route>
+          </Switch>
+          :
+            <div>
+              <Route path="/basic/about">
+              <About />
+              </Route>
+              <Route path="/basic/dashboard">
+              <Dashboard />
+              </Route>
+              <Route path="/basic">
+              <Home />
+              </Route>
+            </div>
+        }
+
       </div>
     </Router>
   )

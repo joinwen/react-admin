@@ -5,6 +5,9 @@ import ParamsExample from "./learn-router/params/params";
 import NestingExample from "./learn-router/nesting/nesting";
 import CustomLinkExample from "./learn-router/custom-link/custom-link";
 import NoMatchExample from "./learn-router/no-match/no-match";
+import RefExample from "./learn-react/advanced/ref-example/ref-example";
+import QueryParametersExample from "./learn-router/query-parameters/query-parameters";
+import RedirectsExample from "./learn-router/redirects/redirects";
 import { Tabs } from "antd";
 import { BrowserRouter as Router, Route,Link } from "react-router-dom";
 const { TabPane } = Tabs;
@@ -14,7 +17,9 @@ function App() {
       <Router>
         <Tabs>
           <TabPane tab="Basic" key="1">
-            <Link to="/basic">Link</Link>
+            <Link to="/basic">No Switch Link</Link>
+            <br/>
+            <Link to="/basic?switch=true">Switch Link</Link>
           </TabPane>
 
           <TabPane tab="URL Parameters" key="2">
@@ -66,11 +71,15 @@ function App() {
           </TabPane>
 
           <TabPane tab="Query Parameters" key="14">
-            <Link to="/query">Link</Link>
+            <Link to="/qs">Link</Link>
           </TabPane>
 
           <TabPane tab="Dashboard" key="20">
             <Link to="/dashboard">Link</Link>
+          </TabPane>
+
+          <TabPane tab="Ref" key="21">
+            <Link to="/ref">Link</Link>
           </TabPane>
         </Tabs>
 
@@ -93,11 +102,22 @@ function App() {
         <Route path="/404">
           <NoMatchExample />
         </Route>
+
+        <Route path="/ref">
+          <RefExample />
+        </Route>
+
         <Route path="/dashboard">
           <BasicLayout/>
         </Route>
 
+        <Route path="/qs">
+          <QueryParametersExample />
+        </Route>
 
+        <Route path="/redirects">
+          <RedirectsExample />
+        </Route>
 
       </Router>
 
