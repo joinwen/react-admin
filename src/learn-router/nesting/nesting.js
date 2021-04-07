@@ -34,6 +34,7 @@ export default function NestingExample() {
 }
 
 function Home() {
+  console.log("home");
   return (
     <div>
       <h2>Home</h2>
@@ -42,6 +43,7 @@ function Home() {
 }
 
 function Topics() {
+  console.log("topics");
   let { path, url } = useRouteMatch();
 
   return (
@@ -60,7 +62,7 @@ function Topics() {
       </ul>
       <Switch>
         <Route exact path={path}>
-          <h3>Please select a topic.</h3>
+          <H3 />
         </Route>
         <Route path={`${path}/:topicId`}>
           <Topic />
@@ -72,9 +74,15 @@ function Topics() {
 
 
 function Topic() {
+  console.log("topic");
   let params = useParams();
   console.log(params);
   return <div>
     <h2>{params.topicId}</h2>
   </div>
+}
+
+function H3() {
+  console.log("h3");
+  return <h3>Please select a topic.</h3>
 }

@@ -1,4 +1,5 @@
 import "./App.css";
+import { Tabs } from "antd";
 import BasicLayout from "./layouts/basic-layout/BasicLayout";
 import BasicExample from "./learn-router/basic/basic";
 import ParamsExample from "./learn-router/params/params";
@@ -7,120 +8,84 @@ import CustomLinkExample from "./learn-router/custom-link/custom-link";
 import NoMatchExample from "./learn-router/no-match/no-match";
 import RefExample from "./learn-react/advanced/ref-example/ref-example";
 import QueryParametersExample from "./learn-router/query-parameters/query-parameters";
-import RedirectsExample from "./learn-router/redirects/redirects";
-import { Tabs } from "antd";
-import { BrowserRouter as Router, Route,Link } from "react-router-dom";
+import AuthExample from "./learn-router/redirects/redirects";
+import SidebarExample from "./learn-router/sidebar/sidebar";
+import RouteConfigExample from "./learn-router/route-config/route-config";
+import AnimationExample from "./learn-router/animated-transitions/animated-transitions";
+
+import ReduxCounterExample from "./learn-redux/counter-example/redux-counter-example";
 const { TabPane } = Tabs;
 function App() {
   return (
     <div className="App">
-      <Router>
         <Tabs>
           <TabPane tab="Basic" key="1">
-            <Link to="/basic">No Switch Link</Link>
-            <br/>
-            <Link to="/basic?switch=true">Switch Link</Link>
+            <BasicExample />
           </TabPane>
 
           <TabPane tab="URL Parameters" key="2">
-            <Link to="/params">Link</Link>
+            <ParamsExample />
           </TabPane>
 
           <TabPane tab="Nesting" key="3">
-            <Link to="/nesting">Link</Link>
+            <NestingExample />
           </TabPane>
 
           <TabPane tab="Redirects" key="4">
-            <Link to="/redirects">Link</Link>
+            <AuthExample />
           </TabPane>
 
           <TabPane tab="Custom Link" key="5">
-            <Link to="/custom">Link</Link>
+            <CustomLinkExample />
           </TabPane>
 
           <TabPane tab="Preventing Transitions" key="6">
-            <Link to="/transitions">Link</Link>
+            <h3>待开发</h3>
           </TabPane>
 
           <TabPane tab="No Match" key="7">
-            <Link to="/404">Link</Link>
+            <NoMatchExample />
           </TabPane>
 
           <TabPane tab="Recursive Paths" key="8">
-            <Link to="/recursive">Link</Link>
+            <h3>待开发</h3>
           </TabPane>
 
           <TabPane tab="Sidebar" key="9">
-            <Link to="/sidebar">Link</Link>
+            <SidebarExample />
           </TabPane>
 
           <TabPane tab="Animated Transitions" key="10">
-            <Link to="/animated">Link</Link>
+            <AnimationExample />
           </TabPane>
 
           <TabPane tab="Route Config" key="11">
-            <Link to="/config">Link</Link>
+            <RouteConfigExample />
           </TabPane>
 
           <TabPane tab="Modal Gallery" key="12">
-            <Link to="/modal">Link</Link>
+            <h3>待开发</h3>
           </TabPane>
 
           <TabPane tab="StaticRouter Context" key="13">
-            <Link to="/context">Link</Link>
+            <h3>待开发</h3>
           </TabPane>
 
           <TabPane tab="Query Parameters" key="14">
-            <Link to="/qs">Link</Link>
+            <QueryParametersExample />
           </TabPane>
 
           <TabPane tab="Dashboard" key="20">
-            <Link to="/dashboard">Link</Link>
+            <BasicLayout />
           </TabPane>
 
           <TabPane tab="Ref" key="21">
-            <Link to="/ref">Link</Link>
+            <RefExample />
           </TabPane>
-        </Tabs>
-
-        <Route path="/basic">
-          <BasicExample />
-        </Route>
-
-        <Route path="/params">
-          <ParamsExample />
-        </Route>
-
-        <Route path="/nesting">
-          <NestingExample />
-        </Route>
-
-        <Route path="/custom">
-          <CustomLinkExample />
-        </Route>
-
-        <Route path="/404">
-          <NoMatchExample />
-        </Route>
-
-        <Route path="/ref">
-          <RefExample />
-        </Route>
-
-        <Route path="/dashboard">
-          <BasicLayout/>
-        </Route>
-
-        <Route path="/qs">
-          <QueryParametersExample />
-        </Route>
-
-        <Route path="/redirects">
-          <RedirectsExample />
-        </Route>
-
-      </Router>
-
+          <TabPane tab="Redux" key="22">
+            <ReduxCounterExample />
+          </TabPane>
+        </Tabs>`
     </div>
   );
 }
